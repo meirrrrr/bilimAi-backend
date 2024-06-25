@@ -20,6 +20,7 @@ class ProblemService {
     });
 
     await newProblem.save();
+
     return newProblem;
   }
 
