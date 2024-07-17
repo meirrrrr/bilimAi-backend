@@ -41,7 +41,7 @@ class ProblemService {
 
       if (
         topicCount[topic] < 3 &&
-        testQuestions.length < 30 &&
+        testQuestions.length < 10 &&
         !usedQuestions.has(question.question)
       ) {
         testQuestions.push(question);
