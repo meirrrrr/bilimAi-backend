@@ -1,7 +1,6 @@
 import { CreateProblemDto } from "./dtos/CreateProblem.dto";
 import ProblemService from "./problem-service";
-import e, { Request, Response } from "express";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import  { Request, Response } from "express";
 import axios from "axios";
 
 class ProblemContoller {
