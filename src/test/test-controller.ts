@@ -1,6 +1,5 @@
 import  { Request, Response } from "express";
 import TestService from "./test-service";
-import testService from "./test-service";
 
 class TestController {
   private testService: TestService;

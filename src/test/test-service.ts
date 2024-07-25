@@ -12,8 +12,10 @@ class TestService {
 
   async startTest(userId: string, type: string): Promise<ITest> {
     const testQuestions = await this.problemService.generateTest();
+    const name = `Тест ${type}`
     const newTest = new TestModel({
       type,
+      name,
       questions: testQuestions,
       userId,
     });
@@ -21,8 +23,8 @@ class TestService {
     await newTest.save();
 
     await UserModel.findByIdAndUpdate(userId, {
-      $set: { currentTest: newTest._id },
-      $push: { testHistory: newTest._id }
+      $set: { currentTest: newTest },
+      $push: { testHistory: newTest }
     });
 
     return newTest;

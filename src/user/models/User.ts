@@ -13,7 +13,14 @@ const UserSchema: Schema = new Schema({
   username: { type: String },
   password: { type: String, required: true },
   currentTest: { type: mongoose.Schema.Types.ObjectId, ref: "Test" },
-  testHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Test" }]
+  // testHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Test" }]
+  testHistory: [
+    {
+      testId: { type: mongoose.Schema.Types.ObjectId, ref: "Test" },
+      name: { type: String, required: true },
+      createdAt: Date
+    }
+  ]
 });
-
-export default mongoose.model<IUser>("User", UserSchema);
+const UserModel = mongoose.model<IUser>("User", UserSchema)
+export default UserModel;
