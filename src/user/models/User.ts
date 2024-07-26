@@ -6,6 +6,7 @@ export interface IUser extends Document {
   password: string;
   currentTest?: mongoose.Types.ObjectId;
   testHistory: mongoose.Types.ObjectId[];
+  interests: string[];
 }
 
 const UserSchema: Schema = new Schema({
@@ -13,14 +14,14 @@ const UserSchema: Schema = new Schema({
   username: { type: String },
   password: { type: String, required: true },
   currentTest: { type: mongoose.Schema.Types.ObjectId, ref: "Test" },
-  // testHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Test" }]
   testHistory: [
     {
       testId: { type: mongoose.Schema.Types.ObjectId, ref: "Test" },
       name: { type: String, required: true },
       createdAt: Date
     }
-  ]
+  ],
+  interests: [{ type: String }]
 });
 const UserModel = mongoose.model<IUser>("User", UserSchema)
 export default UserModel;
