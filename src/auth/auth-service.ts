@@ -39,6 +39,7 @@ class AuthService {
     if (!user) return null;
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
+    console.log(isPasswordValid);
     if (!isPasswordValid) return null;
 
     const accessToken = this.generateJwt(user);

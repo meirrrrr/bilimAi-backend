@@ -14,7 +14,7 @@ app.use(logger);
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res):void => {
+app.get("/", (req, res): void => {
   res.send("Hello world");
 });
 
