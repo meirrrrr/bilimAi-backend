@@ -41,7 +41,7 @@ class ProblemService {
 
       if (
         topicCount[topic] < 3 &&
-        testQuestions.length < 10 &&
+        testQuestions.length < 15 &&
         !usedQuestions.has(question.question)
       ) {
         testQuestions.push(question);
@@ -49,7 +49,7 @@ class ProblemService {
         usedQuestions.add(question.question);
       }
 
-      if (testQuestions.length === 30) {
+      if (testQuestions.length === 15) {
         break;
       }
     }
