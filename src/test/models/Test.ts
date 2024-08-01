@@ -6,14 +6,20 @@ export interface ITest extends Document {
   questions: mongoose.Types.ObjectId[];
   createdAt: Date;
   userId: mongoose.Types.ObjectId;
+  results?: any;
+  completedAt?: Date;
 }
 
 const TestSchema: Schema = new Schema({
   type: { type: String, required: true },
-  name: {type: String, required: true},
-  questions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Problems", required: true }],
+  name: { type: String, required: true },
+  questions: [
+    { type: mongoose.Schema.Types.ObjectId, ref: "Problems", required: true },
+  ],
   createdAt: { type: Date, default: Date.now },
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  results: { type: Schema.Types.Mixed },
+  completedAt: { type: Date },
 });
 
 export default mongoose.model<ITest>("Test", TestSchema);
