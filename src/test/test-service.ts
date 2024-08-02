@@ -19,6 +19,11 @@ class TestService {
     this.problemService = new ProblemService();
   }
 
+  async getTestById(testId: string) {
+    const test = await TestModel.findById(testId);
+    return test;
+  }
+
   async startTest(userId: string, type: string): Promise<ITest> {
     const testQuestions = await this.problemService.generateTest();
     const name = `Тест ${type}`;

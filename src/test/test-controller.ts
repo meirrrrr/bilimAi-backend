@@ -42,6 +42,16 @@ class TestController {
       res.status(500).json({ message: "Server error", error: error });
     }
   };
+
+  getTestById = async (req: Request, res: Response): Promise<void> => {
+    try {
+      const { testId } = req.body;
+      const result = await this.testService.getTestById(testId);
+      res.status(200).json({ result });
+    } catch (error) {
+      res.status(500).json({ message: "Server error", error: error });
+    }
+  };
 }
 
 export default TestController;

@@ -9,5 +9,6 @@ const testController = new TestController(testService);
 
 testRouter.post("/start-test", testController.startTest);
 testRouter.post("/submit-test", testController.submitTest);
+testRouter.post("/getTest", testController.getTestById);
 
 export default testRouter;
